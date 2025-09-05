@@ -1,13 +1,13 @@
-# 📈 Vietnam Stock Trading Strategy (FA+TA+ML)
+# Vietnam Stock Trading Strategy (FA+TA+ML)
 
-## � Tổng Quan
+## Tổng Quan
 
 Chiến lược giao dịch cổ phiếu **tự động** cho thị trường Việt Nam, kết hợp:
-- **📊 Fundamental Analysis (FA)**: Chỉ số tài chính doanh nghiệp
-- **📈 Technical Analysis (TA)**: Xu hướng và dòng tiền
-- **🤖 Machine Learning**: Random Forest dự báo giá
+- **Fundamental Analysis (FA)**: Chỉ số tài chính doanh nghiệp
+- **Technical Analysis (TA)**: Xu hướng và dòng tiền
+- **Machine Learning**: Random Forest dự báo giá
 
-## 🏆 Kết Quả
+## Kết Quả
 
 | Chỉ Số | Giá Trị | Đánh Giá |
 |---------|---------|----------|
@@ -18,9 +18,9 @@ Chiến lược giao dịch cổ phiếu **tự động** cho thị trường Vi
 
 **ML Model**: ROC AUC 0.625, Accuracy 81.2% trên 842K mẫu
 
-## ⚡ Quick Start
+## Quick Start
 
-1. Download data file
+1. Download data:  
 Tải file data từ:  [fa_ta.csv](https://drive.google.com/file/d/19uTOAK1Cuj8NC-EycfdjP293dGVu_oXz/view?usp=drive_link)
 
 ```bash
@@ -31,7 +31,7 @@ pip install -r requirements.txt
 jupyter notebook stock_strategy.ipynb
 ```
 
-## 🧠 Methodology
+## Methodology
 
 ### Scoring System (0-100)
 | Score | Components | Weights |
@@ -50,18 +50,18 @@ jupyter notebook stock_strategy.ipynb
 - **Long Exit**: Price<SMA20, Stop loss/profit, Max 15 days
 - **Short**: Opposite + stricter risk management
 
-## 📊 Key Features
+## Key Features
 
 - **Feature Importance**: FA_Score (37.6%) > Price (27.3%) > ATR (21.6%) > Volume (9.7%) > TA_Score (3.9%)
 - **Portfolio**: 10 Long + 6 Short positions
 - **Risk Management**: Stop loss 8-10%, Take profit 15-20%, Max holding 15 days
 - **Rebalancing**: Every 3 days
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 **Python 3.8+** | **Pandas** | **Scikit-learn** | **FiinQuantX** | **Jupyter**
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 - Phụ thuộc dữ liệu FiinQuant
 - Chi phí giao dịch thực tế có thể khác
