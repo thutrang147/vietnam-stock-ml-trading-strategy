@@ -20,14 +20,12 @@ Chiến lược giao dịch cổ phiếu **tự động** cho thị trường Vi
 
 ## ⚡ Quick Start
 
-```bash
-# 1. Install dependencies
-pip install -r requirements.txt
+1. Download data file
+Tải file data từ:  [fa_ta.csv](https://drive.google.com/file/d/19uTOAK1Cuj8NC-EycfdjP293dGVu_oXz/view?usp=drive_link)
 
-# 2. Download data file
-# Tải file data từ: 
-[fa_ta.csv](https://drive.google.com/file/d/19uTOAK1Cuj8NC-EycfdjP293dGVu_oXz/view?usp=drive_link)
-# Đặt file vào thư mục gốc của project
+```bash
+# 2. Install dependencies
+pip install -r requirements.txt
 
 # 3. Run notebook
 jupyter notebook stock_strategy.ipynb
