@@ -1,70 +1,89 @@
 # Vietnam Stock Trading Strategy (FA+TA+ML)
 
-## Tổng Quan
+## Overview
 
-Chiến lược giao dịch cổ phiếu **tự động** cho thị trường Việt Nam, kết hợp:
-- **Fundamental Analysis (FA)**: Chỉ số tài chính doanh nghiệp
-- **Technical Analysis (TA)**: Xu hướng và dòng tiền
-- **Machine Learning**: Random Forest dự báo giá
+Automated stock trading strategy for **Vietnam Stock Market**, combining:
+- **Fundamental Analysis (FA)**: Company financial metrics evaluation
+- **Technical Analysis (TA)**: Market trends and money flow analysis  
+- **Machine Learning**: Random Forest price prediction model
 
-## Kết Quả
+## Performance Results
 
-| Chỉ Số | Giá Trị | Đánh Giá |
+| Metric | Value | Assessment |
 |---------|---------|----------|
-| **CAGR** | 25.34% | Xuất sắc |
-| **Sharpe Ratio** | 1.60 | Rất tốt |
-| **Max Drawdown** | -16.71% | Kiểm soát tốt |
-| **Total Return** | 82.08% | Vượt trội |
+| **CAGR** | 25.34% | Excellent |
+| **Sharpe Ratio** | 1.60 | Very Good |
+| **Max Drawdown** | -16.71% | Well Controlled |
+| **Total Return** | 82.08% | Outstanding |
 
-**ML Model**: ROC AUC 0.625, Accuracy 81.2% trên 842K mẫu
+**ML Model**: ROC AUC 0.625, Accuracy 81.2% on 842K samples
 
 ## Quick Start
 
-1. Download data:  
-Tải file data từ:  [fa_ta.csv](https://drive.google.com/file/d/19uTOAK1Cuj8NC-EycfdjP293dGVu_oXz/view?usp=drive_link)
+### 1. Download Data
+**Required**: Download `fa_ta.csv` from [Google Drive](https://drive.google.com/file/d/19uTOAK1Cuj8NC-EycfdjP293dGVu_oXz/view?usp=drive_link)
+> Place the file in project root directory
 
+### 2. Install Dependencies
 ```bash
-# 2. Install dependencies
 pip install -r requirements.txt
+```
 
-# 3. Run notebook
+### 3. Run Analysis
+```bash
 jupyter notebook stock_strategy.ipynb
 ```
 
-## Methodology
+## 🧠 Methodology
 
 ### Scoring System (0-100)
-| Score | Components | Weights |
-|-------|------------|---------|
-| **FA Score** | Quality (ROE,ROA) + Growth (EPS,Revenue) + Value (P/E,P/B) | 40%+30%+30% |
-| **TA Score** | Trend (SMA,MACD) + Flow (Volume,OBV,Foreign) | 50%+50% |
-| **ML Score** | Random Forest → P(Return>5% in 10 days) | Algorithm |
+| Score Type | Components | Weight Distribution |
+|------------|------------|-------------------|
+| **FA Score** | Quality (ROE,ROA) + Growth (EPS,Revenue) + Value (P/E,P/B) | 40% + 30% + 30% |
+| **TA Score** | Trend (SMA,MACD) + Flow (Volume,OBV,Foreign) | 50% + 50% |
+| **ML Score** | Random Forest → P(Return > 5% in 10 days) | Algorithm-based |
 
-### Final Score & Regime Filter
-- **Bull Market**: 30% FA + 70% TA
-- **Bear Market**: 70% FA + 30% TA  
-- **Sideways**: 50% FA + 50% TA
+### Market Regime Filter
+Adaptive scoring weights based on market conditions:
+- **Bull Market**: 30% FA + 70% TA (favor momentum)
+- **Bear Market**: 70% FA + 30% TA (favor fundamentals)  
+- **Sideways Market**: 50% FA + 50% TA (balanced approach)
 
 ### Trading Signals
-- **Long Entry**: TA≥50, Price≥95% High20, ATR≤8%
-- **Long Exit**: Price<SMA20, Stop loss/profit, Max 15 days
-- **Short**: Opposite + stricter risk management
+**Long Entry Conditions**:
+- TA Score ≥ 50
+- Price ≥ 95% of 20-day high
+- ATR ≤ 8% (volatility control)
+
+**Exit Conditions**:
+- Price < SMA20 (trend break)
+- Stop loss/take profit triggers
+- Maximum holding period: 15 days
 
 ## Key Features
 
-- **Feature Importance**: FA_Score (37.6%) > Price (27.3%) > ATR (21.6%) > Volume (9.7%) > TA_Score (3.9%)
-- **Portfolio**: 10 Long + 6 Short positions
-- **Risk Management**: Stop loss 8-10%, Take profit 15-20%, Max holding 15 days
-- **Rebalancing**: Every 3 days
+- **Feature Importance**: FA_Score (37.6%) > Close Price (27.3%) > ATR (21.6%) > Volume (9.7%) > TA_Score (3.9%)
+- **Portfolio Structure**: 10 Long + 6 Short positions
+- **Risk Management**: Stop loss 8-10%, Take profit 15-20%
+- **Rebalancing**: Every 3 days for market adaptation
 
-## Tech Stack
+## Technology Stack
 
-**Python 3.8+** | **Pandas** | **Scikit-learn** | **FiinQuantX** | **Jupyter**
+- **Python 3.8+**: Core programming language
+- **Pandas & NumPy**: Data manipulation and analysis
+- **Scikit-learn**: Machine learning models
+- **FiinQuantX**: Vietnam market data source
+- **Jupyter**: Interactive development environment
 
-## Disclaimer
+## Important Notes
 
-- Phụ thuộc dữ liệu FiinQuant
-- Chi phí giao dịch thực tế có thể khác
-- Hiệu suất có thể thay đổi theo thị trường
-- Chỉ mục đích nghiên cứu
+- **Data Dependency**: Requires FiinQuant subscription for live data
+- **Transaction Costs**: Real trading costs may differ from backtest assumptions
+- **Market Sensitivity**: Performance may vary with changing market conditions
+- **Research Purpose**: For educational and research purposes only
+
+## 📄 License
+
+MIT License - See LICENSE file for details
+
 
