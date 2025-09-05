@@ -25,7 +25,8 @@ Chiến lược giao dịch cổ phiếu **tự động** cho thị trường Vi
 pip install -r requirements.txt
 
 # 2. Download data file
-# Tải file data từ: [fa_ta.csv](https://drive.google.com/file/d/19uTOAK1Cuj8NC-EycfdjP293dGVu_oXz/view?usp=drive_link)
+# Tải file data từ: 
+[fa_ta.csv](https://drive.google.com/file/d/19uTOAK1Cuj8NC-EycfdjP293dGVu_oXz/view?usp=drive_link)
 # Đặt file vào thư mục gốc của project
 
 # 3. Run notebook
